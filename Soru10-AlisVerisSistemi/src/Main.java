@@ -26,7 +26,7 @@ public class Main {
         ArrayList<Order> oList=new ArrayList<>();
         oList.add(o1);
         Customer c1=new Customer();
-        c1.name="Üveys";
+        c1.name="Cem";
         c1.id=45689;
         c1.order=oList;
 
@@ -36,5 +36,8 @@ public class Main {
         Customer c3=new Customer();
         Customer c4=new Customer();
         System.out.println("Müşteri Sayısı :"+c4.count);
+
+
+
     }
 }
