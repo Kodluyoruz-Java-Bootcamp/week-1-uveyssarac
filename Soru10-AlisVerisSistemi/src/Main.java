@@ -1,8 +1,10 @@
+import javax.sound.midi.spi.SoundbankReader;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-
+        int billPrice=0;
         Product p1=new Product("Ekmek","Gıda",5,50);
         Product p2=new Product("Peynir","Gıda",45,25);
         Product p3=new Product("Zeytin","Gıda",50,20);
@@ -11,97 +13,60 @@ public class Main {
         Product p6=new Product("Telefon","Teknolojik",2205,50);
         Product p7=new Product("Akıllı Saat","Teknolojik",501,50);
 
+        // ÜRÜN LİSTESİ OLUŞTURMA VE FATURALARINI OLUŞTURMA
         ArrayList<Product> pList=new ArrayList<>();
         pList.add(p1);
         pList.add(p2);
         pList.add(p3);
         pList.add(p4);
-
-        Bill b1=new Bill();
-        b1.price=p1.price+ p2.price+ p3.price+ p4.price;
-        b1.id=2358;
-
+        billPrice=p1.price+ p2.price+ p3.price+ p4.price;
+        Bill b1=new Bill(billPrice,2358);
 
         ArrayList<Product> pList2=new ArrayList<>();
         pList2.add(p6);
         pList2.add(p7);
+        billPrice=p6.price+ p7.price;
+        Bill b2=new Bill(billPrice,1238);
 
-        Bill b2=new Bill();
-        b2.price=p6.price+ p7.price;
-        b2.id=1238;
 
         ArrayList<Product> pList3=new ArrayList<>();
         pList3.add(p7);
         pList3.add(p7);
         pList3.add(p7);
+        billPrice=p7.price+ p7.price+ p7.price;
+        Bill b3=new Bill(billPrice,158);
 
-        Bill b3=new Bill();
-        b3.price=p7.price+ p7.price+ p7.price;
-        b3.id=158;
+        //Sipariş nesnesi oluşturma ve Sipariş listelerine siparişe ekleme
+        Order o1=new Order(1123,pList,b1);
+        Order o2=new Order(1459,pList2,b2);
+        Order o3=new Order(1789,pList3,b3);
 
-
-        //Sipariş nesnesi oluşturma ve Ürün listesini siparişe ekleme
-        Order o1=new Order();
-        o1.id=1123;
-        o1.products=pList;
-        o1.bill=b1;
-
-        Order o2=new Order();
-        o2.id=1123;
-        o2.products=pList;
-        o2.bill=b1;
-
-        Order o3=new Order();
-        o3.id=1123;
-        o3.products=pList2;
-        o3.bill=b2;
-
-        Order o4=new Order();
-        o4.id=1123;
-        o4.products=pList3;
-        o4.bill=b3;
-
-        ArrayList<Order> oList=new ArrayList<>();
-        oList.add(o1);
-        oList.add(o2);
+        //SİPARİŞ LİSTESİ OLUŞTURMA
+        ArrayList<Order> oList1=new ArrayList<>();
+        oList1.add(o1);
+        oList1.add(o2);
 
         ArrayList<Order> oList2=new ArrayList<>();
-        oList.add(o2);
-        oList.add(o3);
-        oList.add(o4);
+        oList2.add(o2);
+        oList2.add(o3);
 
-        Customer c1=new Customer();
-        c1.name="Cem";
-        c1.id=45689;
-        c1.age=26;
-        c1.order=oList;
+        ArrayList<Order> oList3=new ArrayList<>();
+        oList3.add(o3);
 
-        Customer c6=new Customer();
-        c6.name="Cem";
-        c6.id=45671;
-        c6.age=23;
-        c6.order=oList;
-
-        Customer c7=new Customer();
-        c6.name="Berkecan";
-        c6.id=45991;
-        c6.age=17;
-        c6.order=oList;
+        //SİPARİŞİ OLAN MÜŞTERİLER OLUŞTURMA
+        Customer c1=new Customer(11,"Cem",26,oList1);
+        Customer c6=new Customer(22,"Cem",23,oList2);
+        Customer c7=new Customer(33,"Berkecan",17,oList3);
 
 
+        // NÜŞTERİ NESNELERİ OLUŞTURMA VE OLUŞTURULAN MÜŞTERİ SAYISI KONTROLÜ
         System.out.println("Müşteri Sayısı :"+c1.count);
-        Customer c5=new Customer();
-        c5.name="Ali";
-        c5.age=31;
-        Customer c2=new Customer();
-        c2.name="Veli";
-        c2.age=24;
-        Customer c3=new Customer();
-        c3.name="Ahmet";
-        c3.age=27;
-        Customer c4=new Customer();
-        c4.name="Mehmet";
-        c4.age=30;
+
+        Customer c5=new Customer(31,"Ali",31);
+        Customer c2=new Customer(44,"Veli",24);
+        Customer c3=new Customer(49,"Ahmet",27);
+        Customer c4=new Customer(66,"Mehmet",30);
+
         System.out.println("Müşteri Sayısı :"+c1.count);
 
         ArrayList<Customer> customers= new ArrayList<>();
@@ -111,6 +76,7 @@ public class Main {
         customers.add(c4);
         customers.add(c5);
         customers.add(c6);
+        customers.add(c7);
 
 
         //İsmi Cem olanların her bir order'ının ürün sayısını bulup toplama
@@ -138,5 +104,18 @@ public class Main {
             }
         }
         System.out.println("İsmi Cem olup yaşı 30’dan küçük 25’ten büyük müşterilerin toplam alışveriş tutarı : "+price);
+
+        System.out.println("Sistemdeki 1500 TL üzerindeki faturalar");
+        //Sistemdeki 1500 TL üzerindeki faturalar
+        for (int i = 0; i < customers.size(); i++) {
+            for (int j = 0; j < customers.get(i).order.size(); j++) {
+                if(customers.get(i).order.get(j).bill.price>1500){
+                    System.out.print("Customer id : "+customers.get(i).id+" |");
+                    System.out.print(" Bill id : "+customers.get(i).order.get(j).bill.id+" |");
+                    System.out.println(" Bill amount : "+customers.get(i).order.get(j).bill.price+" |");
+                }
+            }
+        }
+        System.out.println("");
     }
 }
