@@ -1,10 +1,8 @@
-import javax.sound.midi.spi.SoundbankReader;
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        int billPrice=0;
+        int billPrice;
         Product p1=new Product("Ekmek","Gıda",5,50);
         Product p2=new Product("Peynir","Gıda",45,25);
         Product p3=new Product("Zeytin","Gıda",50,20);
@@ -115,6 +113,6 @@ public class Main {
                 }
             }
         }
-        System.out.println("");
+
     }
 }
