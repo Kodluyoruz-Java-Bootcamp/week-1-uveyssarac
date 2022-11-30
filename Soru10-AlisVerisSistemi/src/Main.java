@@ -111,7 +111,6 @@ public class Main {
             for (int j = 0; j < customers.get(i).order.size(); j++) {
                 if(customers.get(i).order.get(j).bill.price>1500){
                     System.out.print("Customer id : "+customers.get(i).id+" |");
-                    System.out.print(" Bill id : "+customers.get(i).order.get(j).bill.id+" |");
                     System.out.println(" Bill amount : "+customers.get(i).order.get(j).bill.price+" |");
                 }
             }
