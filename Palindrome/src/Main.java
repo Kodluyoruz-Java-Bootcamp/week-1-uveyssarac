@@ -26,6 +26,7 @@ public class Main {
         long maxIndex=0;
         String str="";
 
+
         for (int i = 10; i < 100; i++) {
             long number= i;
             number+=reverse(i);
