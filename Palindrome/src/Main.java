@@ -1,5 +1,5 @@
 public class Main {
-    public static boolean isPalindrom(long n){
+      public static boolean isPalindrom(long n){
         long reverse = reverse(n);
 
         if(n==reverse){
