@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Palindrome/Palindrome.iml" filepath="$PROJECT_DIR$/Palindrome/Palindrome.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Palindrome/Soru1-Palindrome.iml" filepath="$PROJECT_DIR$/Palindrome/Soru1-Palindrome.iml" />
       <module fileurl="file://$PROJECT_DIR$/Soru10-AlisVerisSistemi/Soru10-AlisVerisSistemi.iml" filepath="$PROJECT_DIR$/Soru10-AlisVerisSistemi/Soru10-AlisVerisSistemi.iml" />
       <module fileurl="file://$PROJECT_DIR$/Soru2-Sekil/Soru2-Sekil.iml" filepath="$PROJECT_DIR$/Soru2-Sekil/Soru2-Sekil.iml" />
       <module fileurl="file://$PROJECT_DIR$/Soru9-MyList/Soru9-MyList.iml" filepath="$PROJECT_DIR$/Soru9-MyList/Soru9-MyList.iml" />
