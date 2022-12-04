@@ -49,5 +49,8 @@ public class Main {
         }
         System.out.print("{ palindrom : "+ maxIndex +" }");
         System.out.println();
+
+        String a=new String("dasda");
+
     }
 }
