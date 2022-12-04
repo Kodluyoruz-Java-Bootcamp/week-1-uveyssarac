@@ -15,6 +15,7 @@ public class Main {
         treeset.add("yeni");
         treeset.add("yeni");
         treeset.add("aaaa");
+        System.out.println("------ Set ------");
         System.out.println("Liste boş mu? "+treeset.isEmpty()); // .isEmpty -> içinin boş olup olmadığını kontol eder
 
         System.out.println("Liste uzunluğu : "+treeset.size()); //.size -> İçerisinde kaç eleman olduğunu verir
@@ -42,11 +43,11 @@ public class Main {
         linkedList.add(0,"Üveys"); // Veriyi belirtilen index üzerine ekler
         linkedList.addFirst("First"); ///---> Listenin ilk indeksine veri ekler
         linkedList.addLast("Last"); ///---> Listenin son indeksine veri ekler
-        linkedList.removeFirst(); // Listenin ilk verisini siler
-        linkedList.removeLast(); // Listenin sonundaki veriyi siler
+        linkedList.removeFirst(); // Listedeki ilk veriyi siler
+        linkedList.removeLast(); // Listedeki son veriyi siler
         linkedList.get(0); // Parametre olarak aldığı index numrasındaki değeri getirir
-        linkedList.getFirst(); // Listenin ilk index bulunan değeri getirir
-        linkedList.getLast(); // Listenin son index yer alan değeri getirir
+        linkedList.getFirst(); // Listenin ilk index'inde bulunan değeri getirir
+        linkedList.getLast(); // Listenin son index'inde yer alan değeri getirir
         System.out.print("LinkeList : ");
         linkedList.stream().forEach(a -> System.out.print(a+" "));
         //List
@@ -58,12 +59,6 @@ public class Main {
         arrayList.addAll(hashset);
         System.out.print("ArrayList : ");
         arrayList.stream().forEach(a -> System.out.print(a+" "));
-
-
-
-
-
-
 
 
 
