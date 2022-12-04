@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Palindrome/Palindrome.iml" filepath="$PROJECT_DIR$/Palindrome/Palindrome.iml" />
       <module fileurl="file://$PROJECT_DIR$/Soru10-AlisVerisSistemi/Soru10-AlisVerisSistemi.iml" filepath="$PROJECT_DIR$/Soru10-AlisVerisSistemi/Soru10-AlisVerisSistemi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Soru2-Sekil/Soru2-Sekil.iml" filepath="$PROJECT_DIR$/Soru2-Sekil/Soru2-Sekil.iml" />
       <module fileurl="file://$PROJECT_DIR$/Soru9-MyList/Soru9-MyList.iml" filepath="$PROJECT_DIR$/Soru9-MyList/Soru9-MyList.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/week-1-uveyssarac.iml" filepath="$PROJECT_DIR$/.idea/week-1-uveyssarac.iml" />
     </modules>
